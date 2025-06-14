@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.game-content {
+    padding: 30px;
+}
+
+.guess-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#guessInput {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+#guessInput:focus {
+    outline: none;
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+#submitGuess {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submitGuess:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+}
+
+#submitGuess:active {
+    transform: translateY(0);
+}
+
+#submitGuess:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.feedback-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.feedback {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback.correct {
+    color: #28a745;
+    animation: bounce 0.6s ease;
+}
+
+.feedback.too-high {
+    color: #dc3545;
+}
+
+.feedback.too-low {
+    color: #fd7e14;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.attempts {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #495057;
+}
+
+.game-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.secondary-btn, .danger-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.danger-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.danger-btn:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+.history-section {
+    border-top: 2px solid #e1e5e9;
+    padding-top: 20px;
+}
+
+.history-section h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.guess-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.guess-item {
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.guess-item.too-high {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.guess-item.too-low {
+    background: #ffeaa7;
+    color: #856404;
+}
+
+.guess-item.correct {
+    background: #d4edda;
+    color: #155724;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+    }
+    
+    .game-header h1 {
+        font-size: 2rem;
+    }
+    
+    .game-content {
+        padding: 20px;
+    }
+    
+    .guess-section {
+        flex-direction: column;
+    }
+    
+    .game-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
